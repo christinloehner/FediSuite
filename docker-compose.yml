@@ -1,0 +1,93 @@
+services:
+  db:
+    image: postgres:15-alpine
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: ${FEDISUITE_IMAGE:-christinloehner/fedisuite:latest}
+    pull_policy: always
+    env_file:
+      - .env
+    environment:
+      - ENABLE_SCHEDULER=false
+      - ENABLE_POSTS_REFRESH=false
+      - ENABLE_IDLE_REMINDER=false
+      - ENABLE_TIPS_ENGINE=false
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - uploads_data:/app/uploads
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    command: sh -c "node server/init-db.js && node server/index.js"
+    # Optional: uncomment and adjust for Traefik
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.fedisuite.rule=Host(`your-domain.example`)"
+    #   - "traefik.http.services.fedisuite.loadbalancer.server.port=3000"
+    #   - "traefik.http.routers.fedisuite.service=fedisuite"
+    #   - "traefik.http.routers.fedisuite.tls.certresolver=letsEncrypt"
+    #   - "traefik.docker.network=proxy"
+    # networks:
+    #   - default
+    #   - proxy
+
+  worker1:
+    image: ${FEDISUITE_IMAGE:-christinloehner/fedisuite:latest}
+    pull_policy: always
+    env_file:
+      - .env
+    environment:
+      - ENABLE_SCHEDULER=true
+      - ENABLE_POSTS_REFRESH=true
+      - ENABLE_IDLE_REMINDER=true
+      - ENABLE_TIPS_ENGINE=true
+      - WORKER_ID=worker-1
+      - REFRESH_BATCH_SIZE=5
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - uploads_data:/app/uploads
+    command: sh -c "node server/index.js"
+
+  worker2:
+    image: ${FEDISUITE_IMAGE:-christinloehner/fedisuite:latest}
+    pull_policy: always
+    env_file:
+      - .env
+    environment:
+      - ENABLE_SCHEDULER=true
+      - ENABLE_POSTS_REFRESH=true
+      - ENABLE_IDLE_REMINDER=true
+      - ENABLE_TIPS_ENGINE=true
+      - WORKER_ID=worker-2
+      - REFRESH_BATCH_SIZE=5
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - uploads_data:/app/uploads
+    command: sh -c "node server/index.js"
+
+volumes:
+  postgres_data:
+  uploads_data:
+
+# Uncomment if you use Traefik and add the app service to that network.
+# networks:
+#   proxy:
+#     external: true

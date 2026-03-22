@@ -1,0 +1,16 @@
+services:
+  app:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fedisuite.rule=Host(`your-domain.example`)"
+      - "traefik.http.services.fedisuite.loadbalancer.server.port=3000"
+      - "traefik.http.routers.fedisuite.service=fedisuite"
+      - "traefik.http.routers.fedisuite.tls.certresolver=letsEncrypt"
+      - "traefik.docker.network=proxy"
+    networks:
+      - default
+      - proxy
+
+networks:
+  proxy:
+    external: true
