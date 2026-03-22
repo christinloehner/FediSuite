@@ -1,50 +1,50 @@
 # Contributing to FediSuite
 
-Vielen Dank, dass du zu FediSuite beitragen möchtest!
+Thank you for your interest in contributing to FediSuite!
 
 ---
 
-## Wo der Code lebt
+## Where the code lives
 
-Dieses Repository enthält ausschließlich die Self-Hosting-Konfiguration (`docker-compose.yml` + `.env.example`) – es gibt hier keinen Anwendungscode, der geändert werden müsste.
+This repository contains only the self-hosting configuration (`docker-compose.yml` + `.env.example`) — there is no application code here to modify.
 
-**Wer Code beitragen möchte**, ist herzlich eingeladen, im eigentlichen Quellcode-Repository mitzumachen:
+**If you want to contribute code**, you are warmly welcome to join the development in the main source repository:
 
 **→ [github.com/christinloehner/FediSuite-Docker-Image](https://github.com/christinloehner/FediSuite-Docker-Image)**
 
-Dort findest du auch eine ausführliche CONTRIBUTING.md mit allen technischen Richtlinien, dem Workflow für Pull Requests und Hinweisen zur lokalen Entwicklungsumgebung.
+You will find a full CONTRIBUTING.md there with all technical guidelines, the pull request workflow, and instructions for setting up a local development environment.
 
 ---
 
-## Unsere Community
+## Our Community
 
-FediSuite entsteht als freies, offenes Projekt – für alle Menschen, die das dezentrale Fediverse nutzen und gestalten wollen.
+FediSuite is a free and open project — for everyone who uses and shapes the decentralized Fediverse.
 
-Wir sind eine **offene, vielfältige und bunte Gemeinschaft**. Wir begrüßen Beiträge von Menschen aller Hintergründe, Identitäten und Erfahrungen – unabhängig von Geschlecht, sexueller Orientierung, Herkunft, Religion, Behinderung, Alter oder politischer Überzeugung.
+We are an **open, diverse, and welcoming community**. We invite contributions from people of all backgrounds, identities, and levels of experience — regardless of gender, sexual orientation, origin, religion, disability, age, or political views.
 
-Wir stehen für **Solidarität, Respekt und gegenseitige Unterstützung**. Diskriminierung, Ausgrenzung und Feindseligkeit haben hier keinen Platz – weder im Code noch in der Kommunikation.
+We stand for **solidarity, respect, and mutual support**. Discrimination, exclusion, and hostility have no place here — neither in code nor in communication.
 
-### Was wir voneinander erwarten
+### What we expect from each other
 
-- Begegne anderen mit Respekt und Freundlichkeit.
-- Geh davon aus, dass Menschen gute Absichten haben, und frage nach, bevor du urteilst.
-- Kritisiere Ideen, nicht Personen.
-- Mach Raum für andere Perspektiven – gerade dann, wenn sie sich von deiner eigenen unterscheiden.
-- Benenne Probleme klar und konstruktiv.
-- Übernimm Verantwortung für deine Worte und dein Handeln.
+- Treat others with respect and kindness.
+- Assume good intent and ask before judging.
+- Criticize ideas, not people.
+- Make space for other perspectives — especially when they differ from your own.
+- Raise issues clearly and constructively.
+- Take responsibility for your words and actions.
 
-### Was wir nicht tolerieren
+### What we do not tolerate
 
-- Diskriminierung, Beleidigungen oder Herabsetzungen jeder Art
-- Sexistische, rassistische, homo- oder transfeindliche Aussagen
-- Harassment und Stalking
-- Das Veröffentlichen privater Informationen anderer ohne deren Einwilligung
-- Jedes Verhalten, das darauf abzielt, Menschen einzuschüchtern oder auszugrenzen
+- Discrimination, insults, or disparagement of any kind
+- Sexist, racist, homophobic, or transphobic statements
+- Harassment and stalking
+- Publishing private information about others without their consent
+- Any behavior aimed at intimidating or excluding people
 
-Verstöße können dazu führen, dass Beiträge abgelehnt und Personen aus der Community ausgeschlossen werden. Meldungen können direkt an die Projektmaintainerin gerichtet werden.
+Violations may result in contributions being rejected and individuals being removed from the community. Reports can be directed to the project maintainer.
 
 ---
 
-## Lizenz
+## License
 
-Durch deinen Beitrag stimmst du zu, dass deine Änderungen unter der [GNU GPL v3.0](LICENSE) veröffentlicht werden.
+By contributing, you agree that your changes will be published under the [GNU GPL v3.0](LICENSE).
