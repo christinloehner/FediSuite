@@ -6,6 +6,15 @@ Project website: https://www.fedisuite.com
 
 You do not need to build anything locally. You only need Docker, Docker Compose, and a `.env` file with your settings.
 
+## Bug Reporting and Contribution
+
+**If you find a bug or if you want to contribute, please either file a bug report or read the CONTRIBUTING.md here:**
+
+---> https://github.com/christinloehner/FediSuite-Docker-Image 
+
+
+---
+
 ## Quick Start
 
 ```bash
