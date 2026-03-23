@@ -1,10 +1,48 @@
 # FediSuite Self-Hosting
 
-Dieses Repository richtet sich an alle, die FediSuite mit Docker Compose selbst betreiben möchten.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![Docker Image Version](https://img.shields.io/docker/v/christinloehner/fedisuite/latest)](https://hub.docker.com/r/christinloehner/fedisuite)
+[![Docker Image Size](https://img.shields.io/docker/image-size/christinloehner/fedisuite/latest)](https://hub.docker.com/r/christinloehner/fedisuite)
+[![Docker Pulls](https://img.shields.io/docker/pulls/christinloehner/fedisuite)](https://hub.docker.com/r/christinloehner/fedisuite)
+[![GitHub issues](https://img.shields.io/github/issues/christinloehner/FediSuite-Docker-Image)](https://github.com/christinloehner/FediSuite-Docker-Image/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/christinloehner/FediSuite-Docker-Image)](https://github.com/christinloehner/FediSuite-Docker-Image/commits/main)
 
-Projektwebseite: https://www.fedisuite.com
+---
 
-Es muss nichts lokal gebaut werden. Du benötigst nur Docker, Docker Compose und eine `.env`-Datei mit deinen Einstellungen.
+**Dieses Repository richtet sich an alle, die FediSuite selbst mit Docker Compose betreiben möchten.**
+
+Projektwebsite: <https://www.fedisuite.com>
+
+Du musst nichts lokal bauen. Du brauchst nur Docker, Docker Compose und eine `.env`-Datei mit deinen Einstellungen.
+
+## Was du wofür nutzen solltest
+
+FediSuite hat mehrere wichtige öffentliche URLs mit unterschiedlichen Zwecken.
+
+- Projektwebsite / Landingpage:
+  https://www.fedisuite.com
+- Self-Hosting-Repository:
+  https://github.com/christinloehner/FediSuite
+- Quellcode, Fehlerberichte und Beiträge:
+  https://github.com/christinloehner/FediSuite-Docker-Image
+- Veröffentlichtes Docker-Image für Self-Hoster:
+  https://hub.docker.com/r/christinloehner/fedisuite
+
+Kurz gesagt:
+
+- Wenn du mehr über FediSuite erfahren möchtest, starte auf der Website.
+- Wenn du FediSuite selbst hosten möchtest, nutze dieses Repository mit den Deployment-Dateien.
+- Wenn du Fehler melden oder an der Anwendung selbst mitarbeiten möchtest, nutze das `FediSuite-Docker-Image`-Repository.
+- Wenn du das fertige Container-Image brauchst, findest du es auf Docker Hub.
+
+## Fehler melden und Mitarbeit
+
+**Wenn du einen Fehler gefunden hast oder mitarbeiten möchtest, meld dich entweder mit einem Bug-Report oder lies die CONTRIBUTING.md hier:**
+
+---> https://github.com/christinloehner/FediSuite-Docker-Image
+
+
+---
 
 ## Schnellstart
 
@@ -31,38 +69,38 @@ Bearbeite `.env` und setze mindestens diese Werte:
 - `SMTP_PASS`
 - `SMTP_FROM`
 
-`ADMIN_EMAIL` und `ADMIN_PASSWORD` sind beim ersten Start erforderlich. FediSuite erstellt den initialen Admin-Benutzer aus diesen Werten. Wenn `ADMIN_PASSWORD` fehlt, ist danach keine Anmeldung in der App möglich.
+`ADMIN_EMAIL` und `ADMIN_PASSWORD` sind beim ersten Start erforderlich. FediSuite legt den initialen Admin-Benutzer anhand dieser Werte an. Fehlt `ADMIN_PASSWORD`, kannst du dich danach nicht in der App anmelden.
 
-SMTP ist ebenfalls erforderlich. FediSuite versendet E-Mails für Benutzerregistrierung, Passwort-Zurücksetzen und historische Import-Abläufe, nachdem Fediverse-Konten verbunden wurden. Lass die SMTP-Einstellungen nicht leer.
+SMTP ist ebenfalls erforderlich. FediSuite verschickt E-Mails für die Benutzerregistrierung, den Passwort-Reset und Abläufe rund um den historischen Import nach dem Verbinden von Fediverse-Konten. Lass die SMTP-Einstellungen nicht leer.
 
-Wenn du neue Benutzerregistrierungen verhindern möchtest, setze `ENABLE_USER_REGISTRATION=false`. Der initiale Admin-Benutzer aus `ADMIN_EMAIL` und `ADMIN_PASSWORD` wird beim ersten Start trotzdem angelegt.
+Wenn du verhindern möchtest, dass sich neue Nutzer registrieren können, setze `ENABLE_USER_REGISTRATION=false`. Der initiale Admin-Benutzer aus `ADMIN_EMAIL` und `ADMIN_PASSWORD` wird beim ersten Start trotzdem angelegt.
 
-Starte FediSuite anschließend:
+Dann FediSuite starten:
 
 ```bash
 docker compose up -d
 ```
 
-Öffne `APP_URL` in deinem Browser, sobald die Container bereit sind.
+Öffne `APP_URL` im Browser, sobald die Container healthy sind.
 
 ## Standard-Setup
 
-Die enthaltene [`docker-compose.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.yml) startet vier Services:
+Die mitgelieferte [`docker-compose.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.yml) startet vier Services:
 
 - `db`: PostgreSQL-Datenbank
 - `app`: Frontend und API
 - `worker1`: Hintergrundjobs
 - `worker2`: Hintergrundjobs
 
-Die Worker übernehmen geplante Beiträge, Aktualisierungs-Jobs, Inaktivitätserinnerungen und die Generierung von Tipps.
+Die Worker kümmern sich um geplante Posts, Refresh-Jobs, Inaktivitätserinnerungen und die Generierung von Tipps.
 
 ## Image-Tags
 
-Die Standard-`.env.example` verwendet diesen Image-Tag:
+Die Standard-`.env.example` verwendet dieses Image-Tag:
 
 - `christinloehner/fedisuite:latest`
 
-Wenn du einen bestimmten Release festlegen möchtest, ersetze `latest` durch den gewünschten Tag.
+Wenn du eine bestimmte Version festnageln möchtest, ersetze `latest` durch den gewünschten Tag.
 
 ## Wichtige Variablen
 
@@ -94,8 +132,8 @@ Optional:
 
 Wenn du Traefik verwendest, hast du zwei Möglichkeiten:
 
-- Kommentiere die Beispiel-Labels in der [`docker-compose.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.yml) ein
-- Nutze [`docker-compose.traefik.example.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.traefik.example.yml) als Referenz
+- Die Beispiel-Labels in der [`docker-compose.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.yml) auskommentieren
+- Die [`docker-compose.traefik.example.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.traefik.example.yml) als Referenz verwenden
 
 Passe Hostname, Cert-Resolver und Netzwerkname an deine Umgebung an.
 
@@ -108,9 +146,9 @@ docker compose pull
 docker compose up -d
 ```
 
-## Überprüfen
+## Konfiguration prüfen
 
-Um die Konfiguration vor dem Start auf Gültigkeit zu prüfen:
+Um zu prüfen, ob deine Konfiguration vor dem Start gültig ist:
 
 ```bash
 cp .env.example .env

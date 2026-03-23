@@ -1,10 +1,39 @@
 # FediSuite Self-Hosting
 
-This repository is for people who want to run FediSuite themselves with Docker Compose.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![Docker Image Version](https://img.shields.io/docker/v/christinloehner/fedisuite/latest)](https://hub.docker.com/r/christinloehner/fedisuite)
+[![Docker Image Size](https://img.shields.io/docker/image-size/christinloehner/fedisuite/latest)](https://hub.docker.com/r/christinloehner/fedisuite)
+[![Docker Pulls](https://img.shields.io/docker/pulls/christinloehner/fedisuite)](https://hub.docker.com/r/christinloehner/fedisuite)
+[![GitHub issues](https://img.shields.io/github/issues/christinloehner/FediSuite-Docker-Image)](https://github.com/christinloehner/FediSuite-Docker-Image/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/christinloehner/FediSuite-Docker-Image)](https://github.com/christinloehner/FediSuite-Docker-Image/commits/main)
+
+---
+
+**This repository is for people who want to run FediSuite themselves with Docker Compose.**
 
 Project website: https://www.fedisuite.com
 
 You do not need to build anything locally. You only need Docker, Docker Compose, and a `.env` file with your settings.
+
+## What Users Should Use
+
+FediSuite currently has several important public URLs with different purposes.
+
+- Project website / landing page:
+  https://www.fedisuite.com
+- Self-hosting repository:
+  https://github.com/christinloehner/FediSuite
+- Source code, bug reports and contributions:
+  https://github.com/christinloehner/FediSuite-Docker-Image
+- Published Docker image for self-hosters:
+  https://hub.docker.com/r/christinloehner/fedisuite
+
+In short:
+
+- If you want to learn about FediSuite, start at the website.
+- If you want to self-host FediSuite, use this repository with the deployment files.
+- If you want to report bugs or work on the application itself, use the `FediSuite-Docker-Image` repository.
+- If you want the ready-to-run container image, use Docker Hub.
 
 ## Bug Reporting and Contribution
 
