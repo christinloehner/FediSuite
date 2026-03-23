@@ -8,7 +8,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
       retries: 5
 
@@ -69,9 +69,9 @@ services:
     env_file:
       - .env
     environment:
-      - ENABLE_SCHEDULER=true
+      - ENABLE_SCHEDULER=false
       - ENABLE_POSTS_REFRESH=true
-      - ENABLE_IDLE_REMINDER=true
+      - ENABLE_IDLE_REMINDER=false
       - ENABLE_TIPS_ENGINE=true
       - WORKER_ID=worker-2
       - REFRESH_BATCH_SIZE=5
