@@ -5,9 +5,9 @@ services:
       - .env
     restart: unless-stopped
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./postgres:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}" ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -26,7 +26,8 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - uploads_data:/app/uploads
+      - ./uploads:/app/uploads
+      - ./plugins:/app/plugins:ro
     ports:
       - "3000:3000"
     restart: unless-stopped
@@ -60,7 +61,8 @@ services:
         condition: service_healthy
     restart: unless-stopped
     volumes:
-      - uploads_data:/app/uploads
+      - ./uploads:/app/uploads
+      - ./plugins:/app/plugins:ro
     command: sh -c "node server/index.js"
 
   worker2:
@@ -80,12 +82,9 @@ services:
         condition: service_healthy
     restart: unless-stopped
     volumes:
-      - uploads_data:/app/uploads
+      - ./uploads:/app/uploads
+      - ./plugins:/app/plugins:ro
     command: sh -c "node server/index.js"
-
-volumes:
-  postgres_data:
-  uploads_data:
 
 # Uncomment if you use Traefik and add the app service to that network.
 # networks:
