@@ -23,6 +23,8 @@ FediSuite currently has several important public URLs with different purposes.
   https://www.fedisuite.com
 - Self-hosting repository:
   https://github.com/christinloehner/FediSuite
+- FediSuite Plugins:
+  https://github.com/christinloehner/FediSuite-Plugins
 - Source code, bug reports and contributions:
   https://github.com/christinloehner/FediSuite-Docker-Image
 - Published Docker image for self-hosters:
@@ -32,6 +34,7 @@ In short:
 
 - If you want to learn about FediSuite, start at the website.
 - If you want to self-host FediSuite, use this repository with the deployment files.
+- If you want to integrate plugins into your FediSuite, clone the plugins repo to ./plugins.
 - If you want to report bugs or work on the application itself, use the `FediSuite-Docker-Image` repository.
 - If you want the ready-to-run container image, use Docker Hub.
 
