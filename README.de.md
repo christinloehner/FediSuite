@@ -1,11 +1,16 @@
 # FediSuite Self-Hosting
 
+> [!IMPORTANT]
+> Dieses Repository ist nach Codeberg umgezogen: <https://codeberg.org/christinloehner/FediSuite>
+>
+> Das GitHub-Repository wird in naher Zukunft archiviert. Bitte nutze fuer alle kuenftigen Klone, Updates und Verweise ausschliesslich das neue Repository auf Codeberg.
+>
+> Grund fuer den Umzug: FediSuite soll bewusst unabhaengiger von grossen US-Tech-Konzernen und US-gehosteter Infrastruktur werden. GitHub gehoert Microsoft und wird auf US-Infrastruktur betrieben, was mit Blick auf digitale Souveraenitaet und Gesetze wie den US CLOUD Act berechtigte Datenschutz- und Zugriffsfragen aufwirft. Codeberg wird von einem deutschen gemeinnuetzigen Verein betrieben und passt deutlich besser zu einem Projekt, das auf digitale Unabhaengigkeit, Self-Hosting und europaeische Infrastruktur setzt.
+
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Docker Image Version](https://img.shields.io/docker/v/christinloehner/fedisuite/latest)](https://hub.docker.com/r/christinloehner/fedisuite)
 [![Docker Image Size](https://img.shields.io/docker/image-size/christinloehner/fedisuite/latest)](https://hub.docker.com/r/christinloehner/fedisuite)
 [![Docker Pulls](https://img.shields.io/docker/pulls/christinloehner/fedisuite)](https://hub.docker.com/r/christinloehner/fedisuite)
-[![GitHub issues](https://img.shields.io/github/issues/christinloehner/FediSuite-Docker-Image)](https://github.com/christinloehner/FediSuite-Docker-Image/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/christinloehner/FediSuite-Docker-Image)](https://github.com/christinloehner/FediSuite-Docker-Image/commits/main)
 
 ---
 
@@ -22,11 +27,11 @@ FediSuite hat mehrere wichtige öffentliche URLs mit unterschiedlichen Zwecken.
 - Projektwebsite / Landingpage:
   https://www.fedisuite.com
 - Self-Hosting-Repository:
-  https://github.com/christinloehner/FediSuite
+  https://codeberg.org/christinloehner/FediSuite
 - FediSuite Plugins:
-  https://github.com/christinloehner/FediSuite-Plugins
+  https://codeberg.org/christinloehner/FediSuite-Plugins
 - Quellcode, Fehlerberichte und Beiträge:
-  https://github.com/christinloehner/FediSuite-Docker-Image
+  https://codeberg.org/christinloehner/FediSuite-Docker-Image
 - Veröffentlichtes Docker-Image für Self-Hoster:
   https://hub.docker.com/r/christinloehner/fedisuite
 
@@ -42,7 +47,7 @@ Kurz gesagt:
 
 **Wenn du einen Fehler gefunden hast oder mitarbeiten möchtest, meld dich entweder mit einem Bug-Report oder lies die CONTRIBUTING.md hier:**
 
----> https://github.com/christinloehner/FediSuite-Docker-Image
+---> https://codeberg.org/christinloehner/FediSuite-Docker-Image
 
 
 ---
@@ -88,7 +93,7 @@ docker compose up -d
 
 ## Standard-Setup
 
-Die mitgelieferte [`docker-compose.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.yml) startet vier Services:
+Die mitgelieferte [`docker-compose.yml`](https://codeberg.org/christinloehner/FediSuite/src/branch/main/docker-compose.yml) startet vier Services:
 
 - `db`: PostgreSQL-Datenbank
 - `app`: Frontend und API
@@ -135,8 +140,8 @@ Optional:
 
 Wenn du Traefik verwendest, hast du zwei Möglichkeiten:
 
-- Die Beispiel-Labels in der [`docker-compose.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.yml) auskommentieren
-- Die [`docker-compose.traefik.example.yml`](https://github.com/christinloehner/fedisuite/blob/main/docker-compose.traefik.example.yml) als Referenz verwenden
+- Die Beispiel-Labels in der [`docker-compose.yml`](https://codeberg.org/christinloehner/FediSuite/src/branch/main/docker-compose.yml) auskommentieren
+- Die [`docker-compose.traefik.example.yml`](https://codeberg.org/christinloehner/FediSuite/src/branch/main/docker-compose.traefik.example.yml) als Referenz verwenden
 
 Passe Hostname, Cert-Resolver und Netzwerkname an deine Umgebung an.
 
